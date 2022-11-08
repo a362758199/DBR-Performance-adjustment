@@ -80,7 +80,7 @@ Note that DCE and DBR run in parallel, so it's ok to enable more DCE features wi
 #### 2. Delve into the algorithm
 ![1667179322427.gif](https://cdn.nlark.com/yuque/0/2022/gif/22760206/1667179352163-f8be33a9-15ae-4417-add5-c8b9e77f8c96.gif#clientId=uf9474d8d-bb18-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=467&id=uff909ed4&margin=%5Bobject%20Object%5D&name=1667179322427.gif&originHeight=300&originWidth=300&originalType=binary&ratio=1&rotation=0&showTitle=false&size=173796&status=done&style=none&taskId=u49b90e3d-ae72-4fbc-ab53-9eaefa5b584&title=&width=467)<br />Assume that this is a real case:  a colored 1D code is embedded in the lower left corner of an article.<br />DBR may do these things to make sure that the decoding goes smoothly:
 
-1. convert color image to grayscale image.
+1. convert colour image to grayscale image.
 2. Filter text, or texture.
 3. Enhance image features, including image-preprocessing and binarization(In fact, you can successfully decode it without doing any of these things).
 4. Localize barcode.
@@ -294,7 +294,7 @@ For all modes, if the default algorithm doesn't seem fast enough, you can change
 ##### 2.5 To further improve the barcode zones for decoding
 After the localization, we have barcode zones located on an image. In this stage, these particular zones are cut from the image precisely on its boundaries. Then these images are preprocessed again before finally being passed (with barcode type information for each zone) to the next stage for decoding.<br />The preprocessing consists of two operations:
 <a name="kGsm2"></a>
-###### 2.5.1 Detect the color of the zones and adjust it based on BarcodeColourModes
+###### 2.5.1 Detect the colour of the zones and adjust it based on BarcodeColourModes
 | Parameter | Default settings |
 | --- | --- |
 | [BarcodeColourModes](https://www.dynamsoft.com/barcode-reader/parameters/reference/barcode-colour-modes.html#barcodecolourmodes) | [BICM_DARK_ON_LIGHT,0,0,0,0,0,0,0] |
