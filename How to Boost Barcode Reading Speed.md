@@ -45,7 +45,10 @@ Do not set the number to exceed the actual number of barcodes on the image. If y
 ##### **1.3 Configure the final decoding process with DeblurModes**
 DeblurModes is the last configurable step before a barcode is decoded. By default, DBR disables all deblurring algorithms to decode each localized barcode zone. If your images are of high quality, you can keep the default setting to skip this step, or just try one or two of them. If your image is blurry like the examples below, you may need to turn on DeblurModes:<br />
 
-<img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350947933-8fee0d88-7962-488b-9ada-b248f3c5bc8f.jpeg" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350947950-36e63a28-aca1-4b5a-8e2d-7afb7765d6c0.jpeg" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350948072-2edae29a-a18c-4939-bbb6-4a03215c5f03.jpeg" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350947960-eb42904e-04bc-402f-b87d-5f003bae76f8.jpeg" alt="image008" height="200">
+<img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350947933-8fee0d88-7962-488b-9ada-b248f3c5bc8f.jpeg" alt="image008" height="20%">
+<img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350947950-36e63a28-aca1-4b5a-8e2d-7afb7765d6c0.jpeg" alt="image008" height="20%">
+<img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350948072-2edae29a-a18c-4939-bbb6-4a03215c5f03.jpeg" alt="image008" height="20%">
+<img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350947960-eb42904e-04bc-402f-b87d-5f003bae76f8.jpeg" alt="image008" height="20%">
 
 
 | Parameter | Default settings |
@@ -86,14 +89,14 @@ Note that DCE and DBR run in parallel, so it's ok to enable more DCE features wi
 
 1. convert color image to grayscale image.
 2. Filter text, or texture.
-3. Enhance image features, including image-preprocessing and binarization(In fact, you can successfully decode it without doing any of these things).
+3. Enhance image features, including image-preprocessing and binarizing.
 4. Localize barcode.
 5. Further process(handle difficult barcodes like blurred, Incomplete or deformed)
 
 The strategy is to do only what is necessary and skip the other for the best speed.
 <a name="KpDhC"></a>
 ##### 2.1 Reduce the size of the image
-When locating barcodes, DBR scans the whole image, so the larger the size of the image, the more time it takes. To speed things up, we can reduce the size of the original image. Usually,  the reduction is done by scaling down a large image or delimiting the region of interest. 
+When locating barcodes, DBR scans the whole image, so the larger the size of the image, the more time it takes. To speed things up, we can reduce the size of the original image. Usually,  the reduction is done by scaling down a large image or delimiting the region of interest.
 
 | Parameter | Default settings |
 | --- | --- |
@@ -114,7 +117,10 @@ The default value of ScaleDownThreshold is 2300, try not to set the threshold mu
 ###### 2.1.2 Delimit the region of interest
 When reading barcodes from a certain type of document or from a video input, the barcode location can usually be predetermined. For example, the barcode on a patient registration form is most likely located in the top 20% of the document, and the barcode that a user is trying to read from a video input is usually located at the center. <br />A group of barcodes appears in the bottom 30 percent of the images:<br />
 
-<img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848466-fa48d708-70e2-4d1a-a569-c404f968090a.png" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848448-9433935e-6e94-4a29-bea6-d70e60b7877d.png" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848472-194be3fd-137a-41bf-b6d6-43a3755f8bbb.png" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848526-6421ff95-1a42-402c-bfee-5165dcaa62f3.png" alt="image008" height="200">
+<img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848466-fa48d708-70e2-4d1a-a569-c404f968090a.png" alt="image008" height="20%">
+<img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848448-9433935e-6e94-4a29-bea6-d70e60b7877d.png" alt="image008" height="20%">
+<img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848472-194be3fd-137a-41bf-b6d6-43a3755f8bbb.png" alt="image008" height="25%">
+<img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848526-6421ff95-1a42-402c-bfee-5165dcaa62f3.png" alt="image008" height="25%">
 <br />
 Recommended Settings:
 
@@ -130,7 +136,7 @@ The above arguments represent the concept of "the bottom 30 percent in an image"
 
 In such cases, we can tell DBR to only read the specific region(s) of interest (ROIs). There are two ways to specify the region:
 
-1. Manually define a region by providing the coordinates of its contours. Each region is defined by a RegionDefinition and then specified by RegionDefinitionNameArray; In runtime settings, the related parameter is Region. 
+1. Manually define a region by providing the coordinates of its contours. Each region is defined by a RegionDefinition and then specified by RegionDefinitionNameArray; In runtime settings, the related parameter is Region.
 | Argument name | Value Type | Value Range | Default Value |
 | --- | --- | --- | --- |
 | Region/[RegionDefinition](https://www.dynamsoft.com/barcode-reader/parameters/reference/region-definition/) | _N/A_ | _see _[this section](https://www.dynamsoft.com/barcode-reader/docs/core/parameters/reference/region.html?ver=latest#as-json-parameter) | _see _[this section](https://www.dynamsoft.com/barcode-reader/docs/core/parameters/reference/region.html?ver=latest#as-json-parameter) |
@@ -159,12 +165,22 @@ The less the noise, the faster the localization. TextureDetectionModes and TextF
 ###### 2.2.1 Filter texture
 In some scenes, the background of images may appear textured, such as a patterned background, screen stripes, etc. As shown below, the barcode background has an odd texture due to the computer screen it is being displayed on. <br />
 
-<img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667295627557-d9433a27-6ee2-4af0-9c3c-3ef99328782f.jpeg" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667295627220-b4973383-5c7b-416f-ba60-92dcdc06d1a1.jpeg" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667295627216-a59ba22b-55f0-4c36-babf-ac420171ddf2.jpeg" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667295703612-4b783f14-9016-4e49-a8fd-1fd0e82fdd31.jpeg" alt="image008" height="200">
+<img src="asset/TextureDetectionModes/tdm1.jpg" title="On_monitor" width="20%">
+<img src="asset/TextureDetectionModes/tdm2.jpg" title="On_monitor" width="20%">
+<img src="asset/TextureDetectionModes/tdm3.jpg" title="On_monitor" width="20%">
+<img src="asset/TextureDetectionModes/tdm4.jpg" title="On_monitor" width="20%">
 <br />
 Recommended Settings:
-
-- TextureDetectionModes = [TDM_GENERAL_WIDTH_CONCENTRATION,0,0,0,0,0,0,0]
-
+```json
+{
+    "TextureDetectionModes": [
+        {
+            "Mode": "TDM_GENERAL_WIDTH_CONCENTRATION",
+            "Sensitivity": 5
+        }
+    ]
+}
+```
 ---
 
 Texture may extend the barcode localization time or even lead to localization errors. DBR detects texture by TDM_GENERAL_WIDTH_CONCENTRATION (the only mode currently supported)using the general algorithm. It has the following arguments for further customizing:
@@ -180,12 +196,22 @@ The following two images demonstrate the binarized images used for localization 
 ###### 2.2.2 Filter text
 Similarly, TextFilterModes helps to reduce the interference caused by text. <br />
 
-<img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667203125357-b545ea06-bbbc-4f36-bda3-eec3c950e429.jpeg" alt="image008" height="250"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667203125317-4bcce64f-12d6-4715-a410-817065263655.jpeg" alt="image008" height="250"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667203125281-40c13fb0-8c56-4e01-97a1-ac92d9d359a6.jpeg" alt="image008" height="250"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667203125323-60734f79-1d11-46f1-85ac-e9ae15439657.jpeg" alt="image008" height="250">
+<img src="asset/TextFilterModes/tfm1.png" title="Text_surrounded" width="20%">
+<img src="asset/TextFilterModes/tfm2.png" title="Text_surrounded" width="20%">
+<img src="asset/TextFilterModes/tfm3.png" title="Text_surrounded" width="20%">
+<img src="asset/TextFilterModes/tfm4.png" title="Text_surrounded" width="20%">
 <br />
 Recommended Settings:
-
-- TextFilterModes = [TFM_GENERAL_CONTOUR,0,0,0,0,0,0,0]
-
+```json
+{
+    "TextFilterModes": [
+        {
+            "Mode": "TFM_GENERAL_CONTOUR",
+            "Sensitivity": 5
+        }
+    ]
+}
+```
 ---
 
 DBR provides a text filter algorithm based on contour detection called TFM_GENERAL_CONTOUR. In terms of image features, there are some differences between the contour of text and that of barcode, so after contour detection processing, we can use this difference to exclude text regions based on some existing rules. TFM_GENERAL_CONTOUR has the following arguments for further customizing:
@@ -211,10 +237,10 @@ In this image, the blue box represents the area to be scanned in the next proces
 
 <a name="xUVWA"></a>
 ###### 2.3.1 Select exact operation options
-If the original image is not grayscale, DBR will convert it to a grayscale image.  After that, the barcode symbol is either lighter or darker than the background. We call a darker barcode a normal barcode and a lighter barcode an inverted barcode. When locating barcodes, DBR expects the barcodes to be normal. Therefore, if an image in fact has inverted barcodes, DBR needs to invert the color of the image in advance, or this may cause some trouble in the following processes.<br />![inverted.jpg](https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667269768054-7dd5cd9e-6642-4f31-ac83-5c6b44b56d4d.jpeg#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=151&id=u8f78d84c&margin=%5Bobject%20Object%5D&name=inverted.jpg&originHeight=84&originWidth=84&originalType=binary&ratio=1&rotation=0&showTitle=true&size=1456&status=done&style=none&taskId=u00ee0886-4fbf-4765-afee-ea071f5b21b&title=original&width=151 "original") <br />![inverted (2).jpg](https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667269767990-ed2275ad-3911-4539-a068-38b792e3a663.jpeg#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=152&id=u18f4fb07&margin=%5Bobject%20Object%5D&name=inverted%20%282%29.jpg&originHeight=84&originWidth=84&originalType=binary&ratio=1&rotation=0&showTitle=true&size=2348&status=done&style=none&taskId=u4cbaae8c-8e7d-4bba-ad59-a45f76d1f96&title=inverted&width=152 "inverted")<br />Take the inverted QRcode as an example. If your data is inverted like this, specify GTM_INVERTED, do not specify both.
+If the original image is not grayscale, DBR will convert it to a grayscale image.  After that, the barcode symbol is either lighter or darker than the background. We call a darker barcode a normal barcode and a lighter barcode an inverted barcode. When locating barcodes, DBR expects the barcodes to be normal. Therefore, if an image in fact has inverted barcodes, DBR needs to invert the color of the image in advance, or this may cause some trouble in the following processes.<br />![inverted.jpg](https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667269768054-7dd5cd9e-6642-4f31-ac83-5c6b44b56d4d.jpeg#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=151&id=u8f78d84c&margin=%5Bobject%20Object%5D&name=inverted.jpg&originHeight=84&originWidth=84&originalType=binary&ratio=1&rotation=0&showTitle=true&size=1456&status=done&style=none&taskId=u00ee0886-4fbf-4765-afee-ea071f5b21b&title=original&width=151 "original") <br />![inverted (2).jpg](https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667269767990-ed2275ad-3911-4539-a068-38b792e3a663.jpeg#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=152&id=u18f4fb07&margin=%5Bobject%20Object%5D&name=inverted%20%282%29.jpg&originHeight=84&originWidth=84&originalType=binary&ratio=1&rotation=0&showTitle=true&size=2348&status=done&style=none&taskId=u4cbaae8c-8e7d-4bba-ad59-a45f76d1f96&title=inverted&width=152 "inverted")<br />Take the inverted QR Code as an example. If your data is inverted like this, specify GTM_INVERTED, do not specify both.
 <a name="cUcgr"></a>
 ###### 2.3.2 Enhance the grayscale image quality
-There are five preprocessing options available in DBR,  to enhance the grayscale image quality. 
+There are five preprocessing options available in DBR, to enhance the grayscale image quality.
 
 - IPM_GENERAL
 - IPM_GRAY_EQUALIZE
@@ -229,15 +255,27 @@ Take IPM_SHARPEN_SMOOTH for example, you can see that the barcode edges are more
 ###### 2.3.3 Adapt image binarization for speed
 The goal of image binarization is to enhance the barcode features. For this kind of image, binarization is not so easy:<br />
 
-<img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667282718845-64886900-d2e9-4d16-8fcb-e447dbc6c7bf.jpeg" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667282718847-7e386830-99b1-4144-81d3-344fe4be54fe.jpeg" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667282718875-78cecc10-4d3c-4e3b-905d-d552f2614584.jpeg" alt="image008" height="200"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667282718985-1df56164-3230-4359-870c-88d89e1ea4c3.jpeg" alt="image008" height="200">
+<img src="asset/BinarizationModes/bm1.jpg" title="Unbalanced_light" width="20%">
+<img src="asset/BinarizationModes/bm2.jpg" title="Unbalanced_light" width="20%">
+<img src="asset/BinarizationModes/bm3.jpg" title="Unbalanced_light" width="20%">
+<img src="asset/BinarizationModes/bm4.jpg" title="Unbalanced_light" width="20%">
 <br />
+
 Recommended Settings:
-
-- BinarizationModes = [BM_LOCAL_BLOCK,0,0,0,0,0,0,0]
-
+```json
+{
+    "BinarizationModes": [
+        {
+            "Mode": "BM_LOCAL_BLOCK",
+            "BlockSizeX": 0,
+            "BlockSizeY": 0
+        }
+    ]
+}
+```
 ---
 
-In the binarization process, all the image pixels will be processed into black or white. Depending on the actual lighting conditions, you can choose between BM_THRESHOLD or BM_LOCAL_BLOCK in BinarizationModes.<br />The value of BM_THRESHOLD determines whether a pixel is black or white. Images taken under good lighting conditions can be attempted to use BM_THRESHOLD to complete the binarization process. Otherwise, use BM_LOCAL_BLOCK. <br />Here is an example, suppose we have a barcode image taken in poor light conditions:<br />![bina1.PNG](https://cdn.nlark.com/yuque/0/2022/png/22760206/1667279535081-a7dfa493-9047-4a0a-8ddc-cbcd94384c4a.png#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=134&id=u38788981&margin=%5Bobject%20Object%5D&name=bina1.PNG&originHeight=102&originWidth=226&originalType=binary&ratio=1&rotation=0&showTitle=true&size=30538&status=done&style=none&taskId=ub52ffe25-eb46-4b84-aa4f-6ab2d5aaa2a&title=unbalanced-lightening-image&width=296 "unbalanced-lightening-image")<br />If a global threshold(BM_THRESHOLD) is used to determine whether each pixel should be black or white, then the poorly lit white pixels in four corners might be treated as black pixels just like this:<br />![bina2.PNG](https://cdn.nlark.com/yuque/0/2022/png/22760206/1667279535078-697ba151-c4c2-4999-8b4c-8497245b57ca.png#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=136&id=ud818cb49&margin=%5Bobject%20Object%5D&name=bina2.PNG&originHeight=103&originWidth=225&originalType=binary&ratio=1&rotation=0&showTitle=true&size=5644&status=done&style=none&taskId=u25e4c6ff-0d8e-4033-86ae-d045a11d4fd&title=use%20BM_THRESHOLD&width=296 "use BM_THRESHOLD")<br />Let's look at the BM_LOCAL_BLOCK. The principle is to split an image into a series of windows, each of which is in a processing unit (the size of the window is controlled by BlockSizeX and BlocksizeY, If BlockSizeX and BlockSizeY are not set manually, DBR will determine their default values based on the size of the image.), and then binarization is accomplished by a set of adaptive local thresholds in all these windows.<br />![bina3.PNG](https://cdn.nlark.com/yuque/0/2022/png/22760206/1667279535090-808f7bb1-dd69-499e-a2b9-3007fc1d95b0.png#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=140&id=ud1b0dc25&margin=%5Bobject%20Object%5D&name=bina3.PNG&originHeight=106&originWidth=230&originalType=binary&ratio=1&rotation=0&showTitle=true&size=5643&status=done&style=none&taskId=u9c3a8003-7bd1-4297-b98b-2bde358d9a5&title=use%20BM_LOCAL_BLOCK%20with%20auto%20BLOCK%20size&width=304 "use BM_LOCAL_BLOCK with auto BLOCK size")<br />Appropriate BlockSizes result in a better-binarized image:<br />![bina4.PNG](https://cdn.nlark.com/yuque/0/2022/png/22760206/1667279535102-4691ee1e-61a2-4851-a7ad-b37db3a85ca1.png#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=135&id=u82c0da7d&margin=%5Bobject%20Object%5D&name=bina4.PNG&originHeight=101&originWidth=228&originalType=binary&ratio=1&rotation=0&showTitle=true&size=5555&status=done&style=none&taskId=u24fc33fb-2826-477b-9196-717efc1e949&title=use%20BM_LOCAL_BLOCK%20with%208x8%20BLOCK%20size&width=305 "use BM_LOCAL_BLOCK with 8x8 BLOCK size")<br />Therefore, the images at the beginning of this section(with bad lighting conditions), BM_LOCAL_BLOCK is the better choice.<br />BM_THRESHOLD has the following arguments for further customizing:
+In the binarization process, all the image pixels will be processed into black or white. Depending on the actual lighting conditions, you can choose between BM_THRESHOLD or BM_LOCAL_BLOCK in BinarizationModes.<br />The value of BM_THRESHOLD determines whether a pixel is black or white. Images taken under good lighting conditions can be attempted to use BM_THRESHOLD to complete the binarization process. Otherwise, use BM_LOCAL_BLOCK. <br />Here is an example, suppose we have a barcode image taken in poor light conditions:<br />![bina1.PNG](https://cdn.nlark.com/yuque/0/2022/png/22760206/1667279535081-a7dfa493-9047-4a0a-8ddc-cbcd94384c4a.png#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=134&id=u38788981&margin=%5Bobject%20Object%5D&name=bina1.PNG&originHeight=102&originWidth=226&originalType=binary&ratio=1&rotation=0&showTitle=true&size=30538&status=done&style=none&taskId=ub52ffe25-eb46-4b84-aa4f-6ab2d5aaa2a&title=unbalanced-lightening-image&width=296 "unbalanced-lightening-image")<br />If a global threshold(BM_THRESHOLD) is used to determine whether each pixel should be black or white, then the poorly lit white pixels in four corners might be treated as black pixels just like this:<br />![bina2.PNG](https://cdn.nlark.com/yuque/0/2022/png/22760206/1667279535078-697ba151-c4c2-4999-8b4c-8497245b57ca.png#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=136&id=ud818cb49&margin=%5Bobject%20Object%5D&name=bina2.PNG&originHeight=103&originWidth=225&originalType=binary&ratio=1&rotation=0&showTitle=true&size=5644&status=done&style=none&taskId=u25e4c6ff-0d8e-4033-86ae-d045a11d4fd&title=use%20BM_THRESHOLD&width=296 "use BM_THRESHOLD")<br />Let's look at the BM_LOCAL_BLOCK. The principle is to split an image into a series of windows, each of which is in a processing unit (the size of the window is controlled by BlockSizeX and BlocksizeY, If BlockSizeX and BlockSizeY are not set manually, DBR will determine their default values based on the size of the image.), and then binarization is accomplished by a set of adaptive local thresholds in all these windows:<br />![bina3.PNG](https://cdn.nlark.com/yuque/0/2022/png/22760206/1667279535090-808f7bb1-dd69-499e-a2b9-3007fc1d95b0.png#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=140&id=ud1b0dc25&margin=%5Bobject%20Object%5D&name=bina3.PNG&originHeight=106&originWidth=230&originalType=binary&ratio=1&rotation=0&showTitle=true&size=5643&status=done&style=none&taskId=u9c3a8003-7bd1-4297-b98b-2bde358d9a5&title=use%20BM_LOCAL_BLOCK%20with%20auto%20BLOCK%20size&width=304 "use BM_LOCAL_BLOCK with auto BLOCK size")<br />Setting appropriate BlockSizes result in a better-binarized image:<br />![bina4.PNG](https://cdn.nlark.com/yuque/0/2022/png/22760206/1667279535102-4691ee1e-61a2-4851-a7ad-b37db3a85ca1.png#clientId=u18aa4d7e-820d-4&crop=0&crop=0&crop=1&crop=1&from=ui&height=135&id=u82c0da7d&margin=%5Bobject%20Object%5D&name=bina4.PNG&originHeight=101&originWidth=228&originalType=binary&ratio=1&rotation=0&showTitle=true&size=5555&status=done&style=none&taskId=u24fc33fb-2826-477b-9196-717efc1e949&title=use%20BM_LOCAL_BLOCK%20with%208x8%20BLOCK%20size&width=305 "use BM_LOCAL_BLOCK with 8x8 BLOCK size")<br />Therefore, the images at the beginning of this section(with bad lighting conditions), BM_LOCAL_BLOCK is the better choice.<br />BM_THRESHOLD has the following arguments for further customizing:
 
 | Argument name | Value Type | Value Range | Default Value |
 | --- | --- | --- | --- |
