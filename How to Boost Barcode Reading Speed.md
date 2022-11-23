@@ -1,4 +1,3 @@
-
 There are 3 basic metrics for measuring the performance of a barcode reader application: speed, accuracy, and read rate. The Dynamsoft Barcode Reader SDK (DBR) has been carefully designed to offer excellent performance in all three of these metrics. In this article, we investigate all the possible ways in which you can configure DBR to focus on speed.<br />This guide explores how DBR can be used to its full-speed potential, and it will be divided into three sections for three types of methods: 
 
 - The first section addresses some of the common and simple methods you can use to effectively increase speed metrics.
@@ -44,12 +43,12 @@ Do not set the number to exceed the actual number of barcodes on the image. If y
 <a name="raQ2n"></a>
 ##### **1.3 Configure the final decoding process with DeblurModes**
 DeblurModes is the last configurable step before a barcode is decoded. By default, DBR disables all deblurring algorithms to decode each localized barcode zone. If your images are of high quality, you can keep the default setting to skip this step, or just try one or two of them. If your image is blurry like the examples below, you may need to turn on DeblurModes:<br />
-
+<!--
 <img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350947933-8fee0d88-7962-488b-9ada-b248f3c5bc8f.jpeg" alt="image008" height="20%">
 <img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350947950-36e63a28-aca1-4b5a-8e2d-7afb7765d6c0.jpeg" alt="image008" height="20%">
 <img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350948072-2edae29a-a18c-4939-bbb6-4a03215c5f03.jpeg" alt="image008" height="20%">
 <img src="https://cdn.nlark.com/yuque/0/2022/jpeg/22760206/1667350947960-eb42904e-04bc-402f-b87d-5f003bae76f8.jpeg" alt="image008" height="20%">
-
+-->
 
 | Parameter | Default settings |
 | --- | --- |
@@ -116,12 +115,13 @@ The default value of ScaleDownThreshold is 2300, try not to set the threshold mu
 <a name="wHlRO"></a>
 ###### 2.1.2 Delimit the region of interest
 When reading barcodes from a certain type of document or from a video input, the barcode location can usually be predetermined. For example, the barcode on a patient registration form is most likely located in the top 20% of the document, and the barcode that a user is trying to read from a video input is usually located at the center. <br />A group of barcodes appears in the bottom 30 percent of the images:<br />
-
+<!--
 <img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848466-fa48d708-70e2-4d1a-a569-c404f968090a.png" alt="image008" height="20%">
 <img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848448-9433935e-6e94-4a29-bea6-d70e60b7877d.png" alt="image008" height="20%">
 <img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848472-194be3fd-137a-41bf-b6d6-43a3755f8bbb.png" alt="image008" height="25%">
 <img src="https://cdn.nlark.com/yuque/0/2022/png/22760206/1667353848526-6421ff95-1a42-402c-bfee-5165dcaa62f3.png" alt="image008" height="25%">
 <br />
+-->
 Recommended Settings:
 
 - RegionTop = 70;
@@ -165,10 +165,7 @@ The less the noise, the faster the localization. TextureDetectionModes and TextF
 ###### 2.2.1 Filter texture
 In some scenes, the background of images may appear textured, such as a patterned background, screen stripes, etc. As shown below, the barcode background has an odd texture due to the computer screen it is being displayed on. <br />
 
-<img src="asset/TextureDetectionModes/tdm1.jpg" title="On_monitor" width="20%">
-<img src="asset/TextureDetectionModes/tdm2.jpg" title="On_monitor" width="20%">
-<img src="asset/TextureDetectionModes/tdm3.jpg" title="On_monitor" width="20%">
-<img src="asset/TextureDetectionModes/tdm4.jpg" title="On_monitor" width="20%">
+<img src="asset/TextureDetectionModes/tdm1.JPG" title="On_monitor" width="24%"><img src="asset/TextureDetectionModes/tdm2.JPG" title="On_monitor" width="24%"><img src="asset/TextureDetectionModes/tdm3.JPG" title="On_monitor" width="24%"><img src="asset/TextureDetectionModes/tdm4.JPG" title="On_monitor" width="24%">
 <br />
 Recommended Settings:
 ```json
@@ -196,10 +193,7 @@ The following two images demonstrate the binarized images used for localization 
 ###### 2.2.2 Filter text
 Similarly, TextFilterModes helps to reduce the interference caused by text. <br />
 
-<img src="asset/TextFilterModes/tfm1.png" title="Text_surrounded" width="20%">
-<img src="asset/TextFilterModes/tfm2.png" title="Text_surrounded" width="20%">
-<img src="asset/TextFilterModes/tfm3.png" title="Text_surrounded" width="20%">
-<img src="asset/TextFilterModes/tfm4.png" title="Text_surrounded" width="20%">
+<img src="asset/TextFilterModes/tfm1.png" title="Text_surrounded" width="24%"><img src="asset/TextFilterModes/tfm2.png" title="Text_surrounded" width="24%"><img src="asset/TextFilterModes/tfm3.png" title="Text_surrounded" width="24%"><img src="asset/TextFilterModes/tfm4.png" title="Text_surrounded" width="24%">
 <br />
 Recommended Settings:
 ```json
@@ -255,10 +249,7 @@ Take IPM_SHARPEN_SMOOTH for example, you can see that the barcode edges are more
 ###### 2.3.3 Adapt image binarization for speed
 The goal of image binarization is to enhance the barcode features. For this kind of image, binarization is not so easy:<br />
 
-<img src="asset/BinarizationModes/bm1.jpg" title="Unbalanced_light" width="20%">
-<img src="asset/BinarizationModes/bm2.jpg" title="Unbalanced_light" width="20%">
-<img src="asset/BinarizationModes/bm3.jpg" title="Unbalanced_light" width="20%">
-<img src="asset/BinarizationModes/bm4.jpg" title="Unbalanced_light" width="20%">
+<img src="asset/BinarizationModes/bm1.jpg" title="Unbalanced_light" width="24%"><img src="asset/BinarizationModes/bm2.jpg" title="Unbalanced_light" width="24%"><img src="asset/BinarizationModes/bm3.jpg" title="Unbalanced_light" width="24%"><img src="asset/BinarizationModes/bm4.JPG" title="Unbalanced_light" width="24%">
 <br />
 
 Recommended Settings:
