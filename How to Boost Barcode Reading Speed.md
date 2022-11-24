@@ -6,9 +6,10 @@ Topic1. DBR algorithm process flow & parameter design<br />
 * [DBR parameter template structure](https://www.dynamsoft.com/barcode-reader/docs/core/parameters/structure-and-interfaces-of-parameters.html?ver=latest)
 
 Topic2. Speed-up-parameters
-* [1.TextureDetectionModes](#221-filter-texture)<br />
+* <br />
+* [1.BinarizationModes](#233-adapt-image-binarization-for-speed)<br />
 * [2.TextFilterModes](#222-filter-text)<br />
-* [3.BinarizationModes](#233-adapt-image-binarization-for-speed)
+* [3.TextureDetectionModes](#221-filter-texture)
  
 Topic3. Online Demo & Experiment<br />
 * [Online Demo](https://demo.dynamsoft.com/barcode-reader/)
